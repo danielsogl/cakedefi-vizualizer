@@ -74,15 +74,14 @@ export function CsvDropzone(props: CsvDropzoneProps) {
     setLoading(true);
     parse<CakeDeFiTransactionRawColum>(files[0], {
       header: true,
-      complete: (results) => {
-        const { data } = results;
+      complete: ({ data }) => {
         const transactions = data.map(
           (rawColum) =>
             ({
               date: rawColum['Date'],
               operation: rawColum['Operation'],
               amount: parseFloat(rawColum['Amount']),
-              asset: rawColum['Coin / Asset'],
+              asset: rawColum['Coin/Asset'],
               fiatValue: parseFloat(rawColum['FIAT value']),
               fiatCurrency: rawColum['FIAT currency'],
               transactionId: rawColum['Transaction ID'],

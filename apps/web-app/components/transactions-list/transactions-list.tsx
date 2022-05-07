@@ -1,5 +1,6 @@
 import { Table } from '@mantine/core';
 import { CakeDeFiTransaction } from '../../models/cake-transaction.model';
+import TransactionsListItem from '../transactions-list-item/transactions-list-item';
 import styles from './transactions-list.module.css';
 
 /* eslint-disable-next-line */
@@ -17,22 +18,12 @@ export function TransactionsList(props: TransactionsListProps) {
             <th>Date</th>
             <th>Type</th>
             <th>Amount</th>
-            <th>Fiat value</th>
           </tr>
         </thead>
         <tbody>
           {Array.isArray(props.transactions)
             ? props.transactions.map((transaction, index) => (
-                <tr key={index}>
-                  <td>{transaction.asset}</td>
-                  <td>{new Date().toDateString()}</td>
-                  <td>{transaction.operation}</td>
-                  <td>{transaction.amount}</td>
-                  <td>
-                    {transaction.fiatValue.toFixed(4)}{' '}
-                    {transaction.fiatCurrency}
-                  </td>
-                </tr>
+                <TransactionsListItem transaction={transaction} key={index} />
               ))
             : undefined}
         </tbody>

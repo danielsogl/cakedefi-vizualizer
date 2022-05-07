@@ -78,7 +78,7 @@ export function CsvDropzone(props: CsvDropzoneProps) {
         const transactions = data.map(
           (rawColum) =>
             ({
-              date: rawColum['Date'],
+              date: new Date(rawColum['Date']),
               operation: rawColum['Operation'],
               amount: parseFloat(rawColum['Amount']),
               asset: rawColum['Coin/Asset'],
@@ -90,6 +90,9 @@ export function CsvDropzone(props: CsvDropzoneProps) {
               relatedReferenceID: rawColum['Related reference ID'],
             } as CakeDeFiTransaction)
         );
+
+        console.log(transactions[0].date);
+
         props.transactionParsed(transactions);
         setLoading(false);
       },

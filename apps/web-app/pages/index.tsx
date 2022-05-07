@@ -1,12 +1,15 @@
-import { Text } from '@mantine/core';
+import { useState } from 'react';
+import CsvDropzone from '../components/csv-dropzone/csv-dropzone';
+import { CakeDeFiTransaction } from '../models/cake-transaction.model';
 
 export function Index() {
-  /*
-   * Replace the elements below with your own.
-   *
-   * Note: The corresponding styles are in the ./index.scss file.
-   */
-  return <Text>Main View</Text>;
+  const [transactions, setTransactions] = useState<CakeDeFiTransaction[]>([]);
+
+  return (
+    <>
+      <CsvDropzone transactionParsed={setTransactions} />
+    </>
+  );
 }
 
 export default Index;

@@ -1,4 +1,4 @@
-import { Search, Home, Calculator, ChartArcs } from 'tabler-icons-react';
+import { Home } from 'tabler-icons-react';
 import { ThemeIcon, UnstyledButton, Group, Text } from '@mantine/core';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -7,7 +7,7 @@ const data = [
   {
     icon: <Home size={16} />,
     color: 'blue',
-    label: 'Transaction Virtualizer',
+    label: 'Transaction Visualizer',
     href: '/',
   },
 ];
